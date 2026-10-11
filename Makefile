@@ -1,9 +1,9 @@
 CC := g++
 CCFLAGS := -Wall -ggdb
 
-.PHONY: all run_s run_c
+.PHONY: all server client clean
 
-all: run_s
+all: build/mdps build/mdpc
 
 build/mdps: src/server.cpp
 	@mkdir -p build
@@ -13,9 +13,12 @@ build/mdpc: src/client.cpp
 	@mkdir -p build
 	$(CC) $(CCFLAGS) src/client.cpp -o build/mdpc $(LDFLAGS)
 
-run_s: build/mdps
+server: build/mdps
 	./build/mdps
 
-run_c: build/mdpc
+client: build/mdpc
 	./build/mdpc
+
+clean:
+	rm ./build/mdps ./build/mdpc
 

@@ -35,7 +35,7 @@ int main()
 
             char message[1024];
 
-            std::sprintf(message, "md:// version %s\n\nHello from md:// server!\nThe server currently does not provide any content\nTime: %s", version, get_time());
+            std::sprintf(message, "md:// protocol - version %s - by nikeedev\n\nHello from md:// server!\nThe server currently does not provide any content\nTime: %s", version, get_time());
     
             boost::system::error_code ignored_error;
             boost::asio::write(socket, boost::asio::buffer(std::string_view(message)), ignored_error);
