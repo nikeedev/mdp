@@ -11,7 +11,7 @@ version = f"v{MDP_MAJOR}.{MDP_MINOR}.{MDP_PATCH}{MDP_STRING}"
 
 temp_msg = f"md:// protocol - version {version} - by nikeedev\n\nHello from md:// server!\nThe server currently does not provide any content\n"
 
-HOST = "192.168.1.100"
+HOST = "0.0.0.0"
 # According to README.md
 PORT = 2004
 
