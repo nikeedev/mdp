@@ -1,24 +1,11 @@
-CC := g++
-CCFLAGS := -Wall -ggdb
+PYTHON := python
 
-.PHONY: all server client clean
+.PHONY: server client 
 
-all: build/mdps build/mdpc
+server: src/server.py
+	$(PYTHON) src/server.py
 
-build/mdps: src/server.cpp
-	@mkdir -p build
-	$(CC) $(CCFLAGS) src/server.cpp -o build/mdps 
+client: src/client.py
+	$(PYTHON) src/client.py
 
-build/mdpc: src/client.cpp
-	@mkdir -p build
-	$(CC) $(CCFLAGS) src/client.cpp -o build/mdpc $(LDFLAGS)
-
-server: build/mdps
-	./build/mdps
-
-client: build/mdpc
-	./build/mdpc
-
-clean:
-	rm ./build/mdps ./build/mdpc
 
