@@ -7,7 +7,7 @@ MDP_STRING = "a";
 
 version = f"v{MDP_MAJOR}.{MDP_MINOR}.{MDP_PATCH}.{MDP_STRING}"
 
-temp_msg = bf"md:// protocol - version {version} - by nikeedev\n\nHello from md:// server!\nThe server currently does not provide any content\nTime: {time.ctime()}"
+temp_msg = b'{f"md:// protocol - version {version} - by nikeedev\n\nHello from md:// server!\nThe server currently does not provide any content\nTime: {time.ctime()}"}'
 
 HOST = "127.0.0.1"
 # According to README.md
@@ -26,6 +26,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 data = conn.recv(1024)
                 if not data:
                     break
-                print(f"Received: {data.decode('utf-8')}")
                 conn.send(temp_msg)
 
