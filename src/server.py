@@ -11,7 +11,7 @@ version = f"v{MDP_MAJOR}.{MDP_MINOR}.{MDP_PATCH}{MDP_STRING}"
 
 temp_msg = f"md:// protocol - version {version} - by nikeedev\n\nHello from md:// server!\nThe server currently does not provide any content\n"
 
-HOST = "127.0.0.1"
+HOST = "192.168.1.100"
 # According to README.md
 PORT = 2004
 
@@ -28,7 +28,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
             data = conn.recv(1024)
             if not data:
                 break
-            print(f"{addr} requests {data.decode("utf-8")}")
+            print(f"{addr} requests {data.decode('utf-8')}")
             conn.send(bytes(temp_msg + f"Server time: {time.ctime()}", encoding="utf-8"))
 
 

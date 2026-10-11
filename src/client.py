@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
 protocol = "md://"
 url = sys.argv[1]
 
-if not url.endswith(protocol):
+if not url.startswith(protocol):
     url = protocol + url
 
 if len(url) > 1024:
@@ -21,13 +21,13 @@ if len(url) > 1024:
     exit(1)
 
 
-without_md = url.split(protocol)[0]
+without_md = url.split(protocol)[1]
 
 serverAddr = without_md.split("/")[0]
 
 port = 2004
 msg = url
-
+print(f"Connecting to {serverAddr}:{port}")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((serverAddr, port))
 s.send(bytes(msg, encoding="utf-8"))
