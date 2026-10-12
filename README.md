@@ -2,14 +2,14 @@
 
 Example client:
 ```console
-$ ./mdpc mdp://web.nikee.dev
+$ python src/client.py mdp://web.nikee.dev
 # Markdown Protocol: md://
 ...
 ```
 
 Example server:
 ```console
-$ ./mdps 
+$ python src/server.py 
 Serving md:// at port 2004
 ...
 ```
