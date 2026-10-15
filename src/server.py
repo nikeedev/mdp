@@ -9,7 +9,7 @@ MDP_STRING = "a";
 
 version = f"v{MDP_MAJOR}.{MDP_MINOR}.{MDP_PATCH}{MDP_STRING}"
 
-if sys.argc < 2:
+if len(sys.argv) < 2:
     print(f"mdp:// server - version {version} - by nikeedev")
     print(f"Too few arguments passed")
     print(f"Usage: {sys.argv[0]} <root folder/serving folder>")
