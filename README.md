@@ -3,14 +3,14 @@
 Example client:
 ```console
 $ python src/client.py mdp://web.nikee.dev
-# Markdown Protocol: md://
+# Markdown Protocol: mdp://
 ...
 ```
 
 Example server:
 ```console
 $ python src/server.py 
-Serving md:// at port 2004
+Serving mdp:// at port 2004
 ...
 ```
 

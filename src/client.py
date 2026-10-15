@@ -1,16 +1,20 @@
 import socket
 import sys
 
-version = "1.0.0a"
+MDP_MAJOR = 1;
+MDP_MINOR = 0;
+MDP_PATCH = 0;
+MDP_STRING = "a";
 
+version = f"v{MDP_MAJOR}.{MDP_MINOR}.{MDP_PATCH}{MDP_STRING}"
 
 if len(sys.argv) < 2:
     print("No URL provided")
-    print(f"mdpc - client for mdp - version {version} - by nikeedev")
-    print(f"Usage: {sys.argv[0]} <md:// URL> ")
+    print(f"mdp:// client - version {version} - by nikeedev")
+    print(f"Usage: {sys.argv[0]} <mdp:// URL> ")
     exit(1)
 
-protocol = "md://"
+protocol = "mdp://"
 url = sys.argv[1]
 
 if not url.startswith(protocol):
