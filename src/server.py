@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
     print(f"mdp:// server - version {version} - by nikeedev")
     print(f"Too few arguments passed")
     print(f"Usage: {sys.argv[0]} <root folder/serving folder>")
-    print("\troot folder: the server will pass all the files that are within that folder under the root path of the server (aka. example.com/file.md")
+    print("\troot folder: the server will pass all the files that are within that folder under the root path of the server (aka. example.com/file.md)")
     exit(1)
 
 root = sys.argv[1]
@@ -37,7 +37,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
             data = conn.recv(1024)
             if not data:
                 break
-            print(f"{addr} requests {data.decode('utf-8')}")
+            url = data.decode('utf-8')
+            
+            print(f"{addr} requests {url}")
             conn.send(bytes(temp_msg + f"\nServer clock (not localtime): {time.ctime()}\r\n", encoding="utf-8"))
 
 
