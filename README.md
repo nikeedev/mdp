@@ -1,4 +1,4 @@
-# Markdown Protocol: md:// 
+# Markdown Protocol: mdp:// 
 
 Example client:
 ```console
