@@ -49,13 +49,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 p = Path(root + "/" + file + "/index.md")
                 if not p.exists():
                     print(origfile)
-                    conn.send(bytes(f"44 {origfile}", encoding="utf-8"))
+                    conn.send(bytes(f"44 error", encoding="utf-8"))
                 else:
                     print(file)
-                    conn.send(bytes(f"30 {file}\n{p.read_text(encoding="utf-8")}", encoding="utf-8"))
+                    conn.send(bytes(f"30 redirect\n{p.read_text(encoding="utf-8")}", encoding="utf-8"))
             else:        
                 print(origfile)
-                conn.send(bytes(f"20 {origfile}\n{p.read_text(encoding="utf-8")}", encoding="utf-8"))
+                conn.send(bytes(f"20 ok\n{p.read_text(encoding="utf-8")}", encoding="utf-8"))
             
             #conn.send(bytes(temp_msg + f"\nServer clock (not localtime): {time.ctime()}\r\n", encoding="utf-8"))
 
